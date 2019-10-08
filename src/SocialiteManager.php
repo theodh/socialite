@@ -81,7 +81,7 @@ class SocialiteManager extends Manager implements Contracts\Factory
         $config = $this->app['config']['services.linkedin'];
 
         return $this->buildProvider(
-          LinkedInProvider::class, $config
+            LinkedInProvider::class, $config
         );
     }
 
@@ -95,7 +95,7 @@ class SocialiteManager extends Manager implements Contracts\Factory
         $config = $this->app['config']['services.bitbucket'];
 
         return $this->buildProvider(
-          BitbucketProvider::class, $config
+            BitbucketProvider::class, $config
         );
     }
 
@@ -183,8 +183,8 @@ class SocialiteManager extends Manager implements Contracts\Factory
         $redirect = value($config['redirect']);
 
         return Str::startsWith($redirect, '/')
-                    ? $this->app['url']->to($redirect)
-                    : $redirect;
+            ? $this->app['url']->to($redirect)
+            : $redirect;
     }
 
     /**

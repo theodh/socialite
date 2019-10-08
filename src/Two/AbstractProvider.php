@@ -216,8 +216,13 @@ abstract class AbstractProvider implements ProviderContract
         $user = $this->mapUserToObject($this->getUserByAccessTokenResponse($response));
 
         return $user->setToken($token)
-                    ->setRefreshToken(Arr::get($response, 'refresh_token'))
-                    ->setExpiresIn(Arr::get($response, 'expires_in'));
+            ->setRefreshToken(Arr::get($response, 'refresh_token'))
+            ->setExpiresIn(Arr::get($response, 'expires_in'));
+    }
+
+    protected function getUserByAccessTokenResponse($response)
+    {
+        return $this->getUserByToken($token = Arr::get($response, 'access_token'));
     }
 
     protected function getUserByAccessTokenResponse($response)
