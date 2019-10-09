@@ -225,11 +225,6 @@ abstract class AbstractProvider implements ProviderContract
         return $this->getUserByToken($token = Arr::get($response, 'access_token'));
     }
 
-    protected function getUserByAccessTokenResponse($response)
-    {
-        return $this->getUserByToken($token = Arr::get($response, 'access_token'));
-    }
-
     /**
      * Get a Social User instance from a known access token.
      *
